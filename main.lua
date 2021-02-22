@@ -33,6 +33,7 @@ function love.load()
     reset()
 end
 
+
 function love.update(dt)
     birdYSpeed = birdYSpeed + (516 * dt)
     birdY = birdY + (birdYSpeed * dt)
@@ -47,7 +48,7 @@ function love.update(dt)
         
         return pipeX, pipeSpaceY
     end
-    
+
     pipe1X, pipe1SpaceY = movePipe(pipe1X, pipe1SpaceY)
     pipe2X, pipe2SpaceY = movePipe(pipe2X, pipe2SpaceY)
 
@@ -82,8 +83,7 @@ function love.keypressed(key)
           birdYSpeed = -165
     end
 
-    pipe1SpaceY = newPipeSpaceY()
-    pipe2SpaceY = newPipeSpaceY()
+    
 end
 
 function love.draw()
