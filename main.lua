@@ -4,7 +4,7 @@ function love.load()
     birdHeight = 25
 
     playingAreaWidth = 800
-    playingAreaHeight = 388
+    playingAreaHeight = 600
 
     pipeSpaceHeight = 100
     pipeWidth = 54
@@ -85,7 +85,6 @@ function love.keypressed(key)
     pipe1SpaceY = newPipeSpaceY()
     pipe2SpaceY = newPipeSpaceY()
 end
-
 
 function love.draw()
     love.graphics.setColor(.14, .36, .46)
