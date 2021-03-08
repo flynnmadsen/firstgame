@@ -83,15 +83,16 @@ function love.keypressed(key)
           birdYSpeed = -165
     end
 
-    
 end
 
 function love.draw()
     love.graphics.setColor(.14, .36, .46)
     love.graphics.rectangle("fill", 0, 0, playingAreaWidth, playingAreaHeight)  
     
-    love.graphics.setColor(.87, .84, .27)
-    love.graphics.rectangle("fill", birdX, birdY, birdWidth, birdHeight)
+    function love.load()
+       whale = love.graphics.newImage("new_project2.png")
+       love.graphics.draw(whale, birdX, birdY, birdWidth, birdHeight)
+   end
 
     local function drawPipe(pipeX, pipeSpaceY)
         love.graphics.setColor(.37, .82, .28)
