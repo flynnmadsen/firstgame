@@ -86,7 +86,7 @@ function love.keypressed(key)
 end
 
 function love.draw()
-    love.graphics.setColor(.14, .36, .46)
+    love.graphics.setColor(.17, .42, .46)
     love.graphics.rectangle("fill", 0, 0, playingAreaWidth, playingAreaHeight)  
     
     function love.load()
@@ -95,7 +95,7 @@ function love.draw()
    end
 
     local function drawPipe(pipeX, pipeSpaceY)
-        love.graphics.setColor(.37, .82, .28)
+        love.graphics.setColor(.53, .77, .90)
         love.graphics.rectangle("fill", pipeX, 0, pipeWidth, pipeSpaceY)    
         love.graphics.rectangle("fill", pipeX, pipeSpaceY + pipeSpaceHeight, pipeWidth, playingAreaHeight - pipeSpaceY - pipeSpaceHeight)
     end
