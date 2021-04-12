@@ -1,2 +1,2 @@
 # firstgame
-Flappy Whale with a twist
+Flappy Whale
