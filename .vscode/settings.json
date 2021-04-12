@@ -1,0 +1,28 @@
+{
+    "Lua.diagnostics.globals": [
+        "love",
+        "draw",
+        "whaleYSpeed",
+        "drawPipe",
+        "pipe2X",
+        "pipe1X",
+        "pipe1SpaceY",
+        "pipe2SpaceY",
+        "whaleY",
+        "testValue",
+        "whaleDetails",
+        "pipeTop",
+        "pipeBottom",
+        "whalePosX",
+        "whalePosY",
+        "reset",
+        "newPipeSpaceY",
+        "movePipe",
+        "iswhaleCollidingWithPipe",
+        "updateScoreAndClosestPipe",
+        "score",
+        "upcomingPipe",
+        "isWhaleCollidingWithPipe",
+        "return"
+    ]
+}
