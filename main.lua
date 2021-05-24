@@ -1,6 +1,12 @@
---require("lldebugger").start()
+
 
 function love.load()
+    music = love.audio.newSource("bensound-theelevatorbossanova.mp3" , "stream")
+    music:setLooping(true)
+    music:play()
+
+    startMenu = true
+
     whale = love.graphics.newImage("new_project2.png")
 
     whaleX = 62
@@ -38,20 +44,17 @@ function newPipeSpaceY()
  end
 
 function love.update(dt)
+    if startMenu == true then
+        return 
+    end
     whaleYSpeed = whaleYSpeed + (516 * dt)
     whaleY = whaleY + (whaleYSpeed * dt)
 
     pipe1X, pipe1SpaceY = movePipe(pipe1X, pipe1SpaceY, dt)
     pipe2X, pipe2SpaceY = movePipe(pipe2X, pipe2SpaceY, dt)
 
-    -- pipeTop = pipe1SpaceY
-    -- pipeBottom = pipe2SpaceY
-    -- whalePosY = whaleY
-   --  whalePosX = 140 --whaleX + (whaleWidth*3)
-
-    -- TODO: Fix!! when whale collide with pipe reset game
     if isWhaleCollidingWithPipe(pipe1X, pipe1SpaceY)        
-       or isWhaleCollidingWithPipe(pipe2X, pipe2SpaceY) 
+       or isWhaleCollidingWithPipe((pipe2X), pipe2SpaceY+10) 
        or whaleY > playingAreaHeight then 
         reset()
     end
@@ -63,10 +66,9 @@ function love.update(dt)
 end
 
 function movePipe(pipeX, pipeSpaceY, dt)
-    --print(pipeX)
+   
     pipeX = pipeX - (120 * dt)
 
-    -- create new pipe once out of playing area
    if (pipeX + pipeWidth) < 0 then
        print("new pipe")
         pipeX = playingAreaWidth
@@ -93,6 +95,12 @@ function updateScoreAndClosestPipe(thisPipe, pipeX, otherPipe)
 end
 
 function love.keypressed(key)
+    if startMenu == true then 
+        if key == "space" then
+            startMenu = false 
+        end
+        return
+    end
     if  whaleY > 0 then
           whaleYSpeed = -165
     end
@@ -111,7 +119,14 @@ function getImageScaleForNewDimensions (image, whaleHeight, whaleWidth)
 end 
 
 
+
+
 function love.draw()
+    if startMenu == true then
+        love.graphics.print("WeLcOmE!!\n press space to start", 350, 300)
+        return
+    end
+
     love.graphics.setColor(.18, .44, .45)
     love.graphics.rectangle("fill", 0, 0, playingAreaWidth, playingAreaHeight)  
     
@@ -124,12 +139,4 @@ function love.draw()
     love.graphics.setColor(1, 1, 1)
     love.graphics.print(score, 20, 20)
 
-    -- love.graphics.print(testValue, 30, 20)
-    -- love.graphics.print(whaleDetails, 30, 30)
-    -- love.graphics.print(pipeTop, 30, 40)
-    -- love.graphics.print(pipeBottom, 30, 50)
-    -- love.graphics.print(whalePosY, 30, 60)
-    -- love.graphics.print(pipe1SpaceY,30, 70)
-    -- love.graphics.print(pipe2SpaceY, 30, 80)
-    --love.graphics.print("test test", 20, 20)
 end
