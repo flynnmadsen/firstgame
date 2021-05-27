@@ -9,9 +9,9 @@ function love.load()
 
     whale = love.graphics.newImage("new_project2.png")
 
-    whaleX = 62
-    whaleWidth = 30
-    whaleHeight = 25
+    whaleX = 55
+    whaleWidth = 25
+    whaleHeight = 30
 
     playingAreaWidth = 800
     playingAreaHeight = 600
@@ -20,6 +20,7 @@ function love.load()
     pipeWidth = 60
     
     reset()
+   
 end
 
 function reset()
@@ -54,7 +55,7 @@ function love.update(dt)
     pipe2X, pipe2SpaceY = movePipe(pipe2X, pipe2SpaceY, dt)
 
     if isWhaleCollidingWithPipe(pipe1X, pipe1SpaceY)        
-       or isWhaleCollidingWithPipe((pipe2X), pipe2SpaceY+10) 
+       or isWhaleCollidingWithPipe((pipe2X), (pipe2SpaceY+30)) 
        or whaleY > playingAreaHeight then 
         reset()
     end
@@ -62,6 +63,7 @@ function love.update(dt)
 
     updateScoreAndClosestPipe(1, pipe1X, 2)
     updateScoreAndClosestPipe(2, pipe2X, 1)
+    
     
 end
 
@@ -80,10 +82,9 @@ end
 
 function isWhaleCollidingWithPipe(pipeX, pipeSpaceY)
    return
-    whaleX < (pipeX + pipeWidth) 
+    whaleX < ((pipeX) + pipeWidth) 
    and (whaleX + whaleWidth) > pipeX
-   and (whaleY < pipeSpaceY or (whaleY + whaleHeight) > (pipeSpaceY + pipeSpaceHeight))
-
+   and (whaleY < (pipeSpaceY-30) or (whaleY + whaleHeight) > (pipeSpaceY-30 + pipeSpaceHeight)) 
 end
 
 function updateScoreAndClosestPipe(thisPipe, pipeX, otherPipe)

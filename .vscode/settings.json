@@ -23,6 +23,7 @@
         "score",
         "upcomingPipe",
         "isWhaleCollidingWithPipe",
-        "return"
+        "return",
+        "crashScreen"
     ]
 }
